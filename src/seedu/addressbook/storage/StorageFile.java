@@ -19,6 +19,9 @@ public class StorageFile {
 
     /** Default file path used if the user doesn't provide the file name. */
     public static final String DEFAULT_STORAGE_FILEPATH = "addressbook.txt";
+    
+    /**Warning message shown to user when file is deleted.*/
+    public static final String WARNING_MESSAGE_FILE_DELETED = "The file has been deleted.";
 
     /* Note: Note the use of nested classes below.
      * More info https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html
@@ -76,6 +79,27 @@ public class StorageFile {
      */
     private static boolean isValidPath(Path filePath) {
         return filePath.toString().endsWith(".txt");
+    }
+    
+    
+    /**
+     * Return true if the file is deleted.
+     */
+    public boolean isFileDeleted() {
+    	File f = new File(path);
+    	if(f.exists()) {
+    		return false;
+    	}
+    	else {
+    		return true;
+    	}
+    }
+    
+    /**
+     * The message will be shown to user when the file has been deleted. 
+     */
+    public String getWarningMessage() {
+    	return WARNING_MESSAGE_FILE_DELETED;
     }
 
     /**
