@@ -54,8 +54,10 @@ public class Address {
 
     @Override
     public String toString() {
-        return block.getBlock() + "," + ;
-    }
+        return block.getBlock() + ", " 
+        	   + street.getStreet()  + ", " 
+        	   + unit.getUnit() + ", " 
+        	   +postal_code.getPostalCode();
 
     @Override
     public boolean equals(Object other) {
